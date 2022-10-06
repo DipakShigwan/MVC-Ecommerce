@@ -8,11 +8,9 @@ Step 1: Add Connection String In AppSetting.json
       "Default": "Information",
       "Microsoft.AspNetCore": "Warning"
     }
-  },
-  
+  },  
     "ConnectionStrings": {
       "DefaultConnection": "Server=DESKTOP-N0D6E01\\SQLEXPRESS;Database=Northwiind;Trusted_Connection=True;"
-
     }
   ,
   "AllowedHosts": "*"
