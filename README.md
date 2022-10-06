@@ -15,5 +15,6 @@ Step 1: Add Connection String In AppSetting.json
   ,
   "AllowedHosts": "*"
 }
+
 step2 : command for database first approach
  Scaffold-DbContext "Server=DESKTOP-N0D6E01\SQLEXPRESS;Initial Catalog=;User =;Password=;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -Context ApplicationDBContext -DataAnnotations
