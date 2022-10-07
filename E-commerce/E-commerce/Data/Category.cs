@@ -18,6 +18,8 @@ namespace E_commerce.Data
         [Column("CategoryID")]
         public int CategoryId { get; set; }
         [StringLength(15)]
+        [Required]
+        [Display(Name ="Name")]
         public string CategoryName { get; set; } = null!;
         [Column(TypeName = "ntext")]
         public string? Description { get; set; }

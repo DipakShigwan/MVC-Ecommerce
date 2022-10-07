@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer("DefaultConnection")); 
+builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection")); 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
