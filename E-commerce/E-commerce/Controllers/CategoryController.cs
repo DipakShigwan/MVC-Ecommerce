@@ -51,53 +51,43 @@ namespace E_commerce.Controllers
         public ActionResult Edit(int id)
         {
             var result = _context.Categories.SingleOrDefault(c => c.CategoryId == id);
-
-            //if (result == null)
-            //    return HttpNotFound();
-
-            //var viewModel = new CustomerFormViewModel
-            //{
-            //    Customer = customer,
-            //    MembershipTypes = _context.MembershipTypes.ToList()
-            //};
-
             return View(result);
         }
 
         // POST: CategoryController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Category category)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var result = _context.Categories.SingleOrDefault(c => c.CategoryId == category.CategoryId);
+            if (result == null)
+                return NotFound();
+            result.CategoryName = category.CategoryName;
+            result.Description = category.Description;
+
+            
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: CategoryController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var result = _context.Categories.SingleOrDefault(c => c.CategoryId == id);
+            return View(result);
         }
 
         // POST: CategoryController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Category category)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var result = _context.Categories.SingleOrDefault(c => c.CategoryId == category.CategoryId);
+            if (result == null)
+                return NotFound();
+            _context.Categories.Remove(result);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
